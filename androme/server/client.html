@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <title>firechat</title>
+</head>
+<body>
+
+<input id="message" type="text">
+<button onclick="send()">发送</button>
+<ul id="list">
+</ul>
+
+<script>
+  // new socket
+	var socket = new WebSocket('ws://firechat.cnodejs.net:80/');
+			
+	// push a message after the connection is established.
+	socket.onopen = function() {
+		//socket.send('Hello World');
+	};
+			
+	// alerts message pushed from server
+	socket.onmessage = function(msg) {
+		//alert(JSON.stringify(msg));
+        var li = document.createElement('li');
+        li.innerText = msg.data;
+        document.getElementById('list').appendChild(li);
+	};
+			
+	// alert close event
+	socket.onclose = function() {
+		alert('closed');
+
+    setTimeout(function() {
+      socket = new WebSocket('ws://firechatat.cnodejs.net:80/');
+    }, 10000);
+	};
+	
+	// alert error event
+	socket.onerror = function(msg) {
+		alert(JSON.stringify(msg));
+	};
+
+  function send() {
+    var msg = document.getElementById('message').value;
+    socket.send(msg);
+    var li = document.createElement('li');
+    li.innerText = msg;
+    document.getElementById('list').appendChild(li);
+  }
+</script>
+</body>
+</html>

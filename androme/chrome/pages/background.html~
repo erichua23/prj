@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script type="text/javascript" src="js/client.js"> </script>
+    <script type="text/javascript" src="js/background.js"> </script>
+</head>
+<body>
+    
+</body>
+</html>
