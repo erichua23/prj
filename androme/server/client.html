@@ -1,53 +1,45 @@
-<!doctype html>
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
 <head>
-  <title>firechat</title>
+    <meta charset="UTF-8">
+    <title></title>
 </head>
 <body>
+    <div>ID: <span id="client-id"></span></div>
+    <div>Send To: <input id="send-to"></div>
 
-<input id="message" type="text">
-<button onclick="send()">发送</button>
-<ul id="list">
-</ul>
+    <button id="left">left</button>
+    <button id="top">top</button>
+    <button id="down">down</button>
+    <button id="right">right</button>
+    <script type="text/javascript" src="socket.io.js">
+    </script>
+    <script>
+    var socket = io.connect('http://localhost');
 
-<script>
-  // new socket
-	var socket = new WebSocket('ws://firechat.cnodejs.net:80/');
-			
-	// push a message after the connection is established.
-	socket.onopen = function() {
-		//socket.send('Hello World');
-	};
-			
-	// alerts message pushed from server
-	socket.onmessage = function(msg) {
-		//alert(JSON.stringify(msg));
-        var li = document.createElement('li');
-        li.innerText = msg.data;
-        document.getElementById('list').appendChild(li);
-	};
-			
-	// alert close event
-	socket.onclose = function() {
-		alert('closed');
+    socket.on('connect', function () {
+        socket.on('cmd_res', function (data) {
+            console.log(data);
+        });
+        socket.on('remote_cmd', function (data) {
+            console.log(data);
+        });
+        document.getElementById('client-id').innerHTML = socket.socket.sessionid;
+    });
 
-    setTimeout(function() {
-      socket = new WebSocket('ws://firechatat.cnodejs.net:80/');
-    }, 10000);
-	};
-	
-	// alert error event
-	socket.onerror = function(msg) {
-		alert(JSON.stringify(msg));
-	};
+    function sendCmd(cmdBody){
+        console.log(document.getElementById('send-to').value);
+        socket.emit('cmd', cmdBody);
+    }
 
-  function send() {
-    var msg = document.getElementById('message').value;
-    socket.send(msg);
-    var li = document.createElement('li');
-    li.innerText = msg;
-    document.getElementById('list').appendChild(li);
-  }
-</script>
+
+    document.getElementById('left').addEventListener('click', function() {
+        sendCmd({
+            cmd: 'up',
+            slave: document.getElementById('send-to').value
+        });
+    }, false);
+    </script>
 </body>
 </html>
+
