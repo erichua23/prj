@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+android:id="@+id/lytFund"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:orientation="vertical"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+	<LinearLayout
+android:id="@+id/lytFundTitle"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+		<TextView
+android:id="@+id/lblFundMessage"
+android:layout_width="50sp"
+android:layout_height="wrap_content"
+android:layout_weight="1"
+android:text="Message"
+>
+		</TextView>
+		<ImageView
+		android:id="@+id/fundImgStatus"
+		android:layout_width="16px"
+		android:layout_height="16px"
+		android:layout_marginTop="2px"
+		android:layout_marginBottom="2px"
+		android:src="@drawable/disconnected"
+		/>
+	</LinearLayout>
+	<EditText
+android:id="@+id/txfFundMessage"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="Your Message"
+android:textSize="18sp"
+>
+	</EditText>
+	<TextView
+android:id="@+id/lblFundTarget"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Target"
+>
+	</TextView>
+	<EditText
+android:id="@+id/txfFundTarget"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="Target"
+android:textSize="18sp"
+>
+	</EditText>
+	<LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="fill_parent"
+      android:layout_height="60sp"
+      android:layout_weight="0"
+      android:paddingTop="5sp">
+		<Button
+android:id="@+id/btnFundSend"
+android:layout_width="50sp"
+android:layout_height="wrap_content"
+android:text="Send\n"
+android:drawableLeft="@drawable/send"
+android:layout_weight="1">
+		</Button>
+		<Button
+android:id="@+id/btnFundBroadcast"
+android:layout_width="50sp"
+android:layout_height="wrap_content"
+android:text="Broad-\ncast"
+android:drawableLeft="@drawable/broadcast"
+android:layout_weight="1">
+		</Button>
+		<Button
+android:id="@+id/btnFundClearLog"
+android:layout_width="50sp"
+android:layout_height="wrap_content"
+android:text="Clear\nLogs"
+android:drawableLeft="@drawable/mni_clear"
+android:layout_weight="1">
+		</Button>
+	</LinearLayout>
+
+	<TextView
+android:id="@+id/fundLblLogTitle"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Incoming Messages"
+>
+	</TextView>
+	<EditText
+android:id="@+id/lblFundLog"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:textSize="12sp"
+android:text=""
+android:layout_weight="1"
+android:gravity="top|left"
+android:editable="false"
+>
+	</EditText>
+
+
+</LinearLayout>

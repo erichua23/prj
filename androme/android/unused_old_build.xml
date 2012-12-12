@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- (If you delete it and reopen the project it will be recreated.) -->
+<project name="jWebSocketAndroidDemo" default="default" basedir=".">
+    <description>Builds, tests, and runs the project jWebSocketAndroidDemo.</description>
+    <import file="nbproject/build-impl.xml"/>
+    <!--
+
+    There exist several targets which are by default empty and which can be 
+    used for execution of your tasks. These targets are usually executed 
+    before and after some main targets. They are: 
+
+      -pre-init:                 called before initialization of project properties
+      -post-init:                called after initialization of project properties
+      -pre-compile:              called before javac compilation
+      -post-compile:             called after javac compilation
+      -pre-compile-single:       called before javac compilation of single file
+      -post-compile-single:      called after javac compilation of single file
+      -pre-compile-test:         called before javac compilation of JUnit tests
+      -post-compile-test:        called after javac compilation of JUnit tests
+      -pre-compile-test-single:  called before javac compilation of single JUnit test
+      -post-compile-test-single: called after javac compilation of single JUunit test
+      -pre-jar:                  called before JAR building
+      -post-jar:                 called after JAR building
+      -post-clean:               called after cleaning build products
+
+    (Targets beginning with '-' are not intended to be called on their own.)
+
+    Example of inserting an obfuscator after compilation could look like this:
+
+        <target name="-post-compile">
+            <obfuscate>
+                <fileset dir="${build.classes.dir}"/>
+            </obfuscate>
+        </target>
+
+    For list of available properties check the imported 
+    nbproject/build-impl.xml file. 
+
+
+    Another way to customize the build is by overriding existing main targets.
+    The targets of interest are: 
+
+      -init-macrodef-javac:     defines macro for javac compilation
+      -init-macrodef-junit:     defines macro for junit execution
+      -init-macrodef-debug:     defines macro for class debugging
+      -init-macrodef-java:      defines macro for class execution
+      -do-jar-with-manifest:    JAR building (if you are using a manifest)
+      -do-jar-without-manifest: JAR building (if you are not using a manifest)
+      run:                      execution of project 
+      -javadoc-build:           Javadoc generation
+      test-report:              JUnit report generation
+
+    An example of overriding the target for project execution could look like this:
+
+        <target name="run" depends="jWebSocketAndroidDemo-impl.jar">
+            <exec dir="bin" executable="launcher.exe">
+                <arg file="${dist.jar}"/>
+            </exec>
+        </target>
+
+    Notice that the overridden target depends on the jar target and not only on 
+    the compile target as the regular run target does. Again, for a list of available 
+    properties which you can use, check the target you are overriding in the
+    nbproject/build-impl.xml file. 
+
+    -->
+
+    <target name="-post-jar">
+    <!--
+        <zip update="true" destfile="${dist.apk}">
+            <zipfileset dir="${external.libs.dir}" includes="json-2-RELEASE65.jar" prefix="" />
+            <zipfileset dir="${external.libs.dir}" includes="jWebSocketCommon-0.10.jar" prefix="" />
+            <zipfileset dir="${external.libs.dir}" includes="jWebSocketClientAPI-0.10.jar" prefix="" />
+            <zipfileset dir="${external.libs.dir}" includes="jWebSocketJavaSEClient-0.10.jar" prefix="" />
+
+            <zipfileset dir="${external.libs.dir}" includes="javolution-5.5.1.jar" prefix="" />
+            <zipfileset dir="${external.libs.dir}" includes="log4j-1.2.15.jar" prefix="" />
+            <zipfileset dir="${external.libs.dir}" includes="netty-3.2.1.Final" prefix="" />
+        </zip>
+        -->
+
+        <zip destfile="tmp.apk">
+            <zipfileset src="${dist.apk}">
+                <exclude name="META-INF/*.*" />
+            </zipfileset>
+        </zip>
+        <move file="tmp.apk" tofile="${dist.apk}" />
+<!--
+The SDK tools create the debug keystore/key with predetermined names/passwords:
+
+Keystore name: "debug.keystore"
+Keystore password: "android"
+Key alias: "androiddebugkey"
+Key password: "android"
+CN: "CN=Android Debug,O=Android,C=US"
+-->
+        <signjar
+            jar="${dist.apk}"
+            alias="jWebSocket_demo"
+            storepass="jWebSocket"
+            force="yes"
+            keypass="jWebSocket"
+            keystore="jWebSocket_demo.keystore"/>
+
+    </target>
+</project>

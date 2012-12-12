@@ -60,28 +60,24 @@ function activeFc() {
 }
 
 function connect() {
-    var socket = io.connect('http://localhost:8000'); // TIP: .connect with no args does auto-discovery
+    var socket = io.connect('http://localhost'); // TIP: .connect with no args does auto-discovery
     socket.on('connect', function (id) { // TIP: you can avoid listening on `connect` and listen on events directly too!
         console.log(socket);
         console.log(socket.socket.sessionid);
         $('#qrcode').qrcode(socket.socket.sessionid);
         $('#sessionId').html(socket.socket.sessionid);
-    });
-
-    socket.on('cmd', function (cmd) {
-        console.log('recieve a cmd');
-        //log();
-        //chrome.tabs.executeScript(null, {code:"window.scrollBy(0, 100)"});
-        
-        chrome.tabs.getSelected(null, function(tab) {
-            if (cmd.cmd === 'up') {
-                window.scrollBy(0, cmd.moveBy);
-            } else if (cmd.cmd === 'down') {
-                window.scrollBy(0, cmd.moveBy);
-            }
-            //chrome.tabs.update(tab.id, {url: 'http://baidu.com'});
+        socket.on('remote_cmd', function (cmd) {
+            console.log('recieve a cmd');
+            //log();
+            //chrome.tabs.executeScript(null, {code:"window.scrollBy(0, 100)"});
+            
+            chrome.tabs.getSelected(null, function(tab) {
+                window.scrollBy(0, 100);
+                //chrome.tabs.update(tab.id, {url: 'http://baidu.com'});
+            });
         });
     });
+
 }
 
 function disconnect() {

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+android:id="@+id/cfgLytConfig"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:orientation="vertical"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+	<TextView
+android:id="@+id/cfgLblURL"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="URL"
+>
+	</TextView>
+	<EditText
+android:id="@+id/cfgTxfURL"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="ws://jwebsocket.org:8787"
+android:textSize="18sp"
+>
+	</EditText>
+	<TextView
+android:id="@+id/cfgLblUsername"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Username"
+>
+	</TextView>
+	<EditText
+android:id="@+id/cfgTxfUsername"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="guest"
+android:textSize="18sp"
+>
+	</EditText>
+	<TextView
+android:id="@+id/cfgLblPassword"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Password"
+>
+	</TextView>
+	<EditText
+android:id="@+id/cfgTxfPassword"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="guest"
+android:textSize="18sp"
+android:password="true"
+>
+	</EditText>
+	<LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:layout_weight="1"
+      android:paddingTop="15sp">
+		<Button
+android:id="@+id/cfgBtnCancel"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Cancel"
+android:drawableLeft="@drawable/mni_cancel"
+android:layout_weight="1"
+>
+		</Button>
+		<Button
+android:id="@+id/cfgBtnSave"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Save"
+android:drawableLeft="@drawable/mni_save"
+android:layout_weight="1"
+>
+		</Button>
+	</LinearLayout>
+</LinearLayout>
