@@ -1,0 +1,8 @@
+(function(){
+    window.AgentsView = Backbone.View.extend({
+        el: '#agent-ctn',
+        initialize: function () {
+            console.log('initialize');
+        }
+    });
+}());

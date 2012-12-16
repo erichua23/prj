@@ -1,0 +1,53 @@
+<?php
+
+class AgentsController extends Controller
+{
+	public function actionDelete()
+	{
+        $this->_sendResponse(501, sprintf('Error: Mode <b>delete</b> is not implemented for model <b>%s</b>', $_GET['model']) ); 
+        echo CJSON::encode(array());
+	}
+
+	public function actionListAll()
+	{
+        $model = new AdaAgent();
+        echo CJSON::encode($model->findAll());
+	}
+
+	public function actionListOne($id)
+	{
+        $model = new AdaAgent();
+        echo CJSON::encode($model->findByPk($id));
+	}
+
+	public function actionUpdate()
+	{
+	}
+
+	// Uncomment the following methods and override them if needed
+	/*
+	public function filters()
+	{
+		// return the filter configuration for this controller, e.g.:
+		return array(
+			'inlineFilterName',
+			array(
+				'class'=>'path.to.FilterClass',
+				'propertyName'=>'propertyValue',
+			),
+		);
+	}
+
+	public function actions()
+	{
+		// return external action classes, e.g.:
+		return array(
+			'action1'=>'path.to.ActionClass',
+			'action2'=>array(
+				'class'=>'path.to.AnotherActionClass',
+				'propertyName'=>'propertyValue',
+			),
+		);
+	}
+	*/
+}

@@ -1,0 +1,8 @@
+(function(){
+    window.AgentCollection = Backbone.Collection.extend({
+        idAttribute: 'agent_id',
+        model: AgentModel,
+        url: 'index.php/api/agents'
+    });
+    window.agents = new AgentCollection();
+}());
