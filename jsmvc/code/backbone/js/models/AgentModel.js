@@ -7,7 +7,6 @@
         },
         initialize: function() {
             this.on('change', function () {
-                alert('change');
             });
         }
     });
