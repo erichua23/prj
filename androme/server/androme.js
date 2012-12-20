@@ -5,7 +5,7 @@ var app = express()
     , server = require('http').createServer(app)
     , io = io.listen(server);
 
-server.listen(80);
+server.listen(8232);
 
 var ClientManager = function(){
     var clients = {};
