@@ -6,5 +6,6 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="scan_qr_btn">QR</string>
     <string name="todo">TODO</string>
+    <string name="togglebutton">ToggleButton</string>
 
 </resources>

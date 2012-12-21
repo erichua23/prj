@@ -2,21 +2,24 @@
     window.AgentRowView = Backbone.View.extend({
         tagName: 'tr',
         events: {
-            'click .delete': 'deleteAgent'
+            'click .delete': 'deleteAgent',
+            'click .update-time': 'updateTime'
         },
         template: _.template($('#agent-row-tpl').html()),
         initialize: function () {
             _.bindAll(this, 'render', 'remove');
 
             this.model.on('destroy', this.remove);
+            this.model.on('change', this.render);
         },
         deleteAgent: function () {
             this.model.destroy({
-                success: function(model, response) {
-                    alert('success');
-                },
                 wait: true
             });
+        },
+        updateTime: function () {
+            this.model.set('up_time', new Date());
+            this.model.save();
         },
         render: function () {
             this.$el.html(this.template(this.model.toJSON()))

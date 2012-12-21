@@ -1,26 +1,50 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-
-    <android.gesture.GestureOverlayView
-        android:id="@+id/gestureOverlayView"
+    android:id="@+id/TableLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true" >
-    </android.gesture.GestureOverlayView>
+        android:layout_weight="0" >
 
-    <ImageButton
-        android:id="@+id/qr_btn"
+        <ToggleButton
+            android:id="@+id/toggleButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/togglebutton" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="260dp"
+        android:layout_weight="1" >
+
+        <android.gesture.GestureOverlayView
+            android:id="@+id/gestureOverlayView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            >
+        </android.gesture.GestureOverlayView>
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/ic_launcher"
-        android:contentDescription="@string/todo"
-        android:src="@drawable/mni_cancel"
-         />
+        android:layout_weight="0" >
 
-</RelativeLayout>
+        <ImageButton
+            android:id="@+id/qr_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="118dp"
+            android:background="@drawable/ic_launcher"
+            android:contentDescription="@string/todo" />
+    </RelativeLayout>
+
+</TableLayout>

@@ -21,6 +21,9 @@
         socket.on('cmd_res', function (data) {
             console.log(data);
         });
+        socket.on('remote_cmd', function (data) {
+            console.log(data);
+        });
         document.getElementById('client-id').innerHTML = socket.socket.sessionid;
     });
 

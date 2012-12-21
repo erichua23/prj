@@ -19,11 +19,6 @@
         <activity
             android:name=".Fundamentals"
             android:label="jWebSocket Client Fundamentals" >
-            <intent-filter>
-                <action android:name="android.intent.action.EDIT" />
-
-                <category android:name="android.intent.category.ALTERNATIVE" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ConfigActivity"
@@ -37,70 +32,52 @@
         <activity
             android:name=".CanvasActivity"
             android:label="jWebSocket Client Canvas Demo" >
-            <intent-filter>
-                <action android:name="android.intent.action.EDIT" />
-
-                <category android:name="android.intent.category.ALTERNATIVE" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".CameraActivity"
             android:label="jWebSocket Camera Demo"
             android:screenOrientation="landscape" >
-            <intent-filter>
-                <action android:name="android.intent.action.EDIT" />
-
-                <category android:name="android.intent.category.ALTERNATIVE" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".VideoActivity"
             android:label="jWebSocket Video Demo"
             android:screenOrientation="landscape" >
-            <intent-filter>
-                <action android:name="android.intent.action.EDIT" />
-
-                <category android:name="android.intent.category.ALTERNATIVE" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ArduinoActivity"
             android:label="jWebSocket Arduino Demo"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.EDIT" />
-
-                <category android:name="android.intent.category.ALTERNATIVE" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".RPCDemoActivity"
             android:label="jWebSocket RPC Demo"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.EDIT" />
-
-                <category android:name="android.intent.category.ALTERNATIVE" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".TwitterStreamActivity"
             android:label="jWebSocket Twitter Demo"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.EDIT" />
-
-                <category android:name="android.intent.category.ALTERNATIVE" />
-            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.zijunlin.Zxing.Demo.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
 
 </manifest><!--
 <?xml version="1.0" encoding="UTF-8"?>
@@ -154,5 +131,5 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
-</manifest>
+</manifest>
 -->

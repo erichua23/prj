@@ -5,7 +5,7 @@ var app = express()
     , server = require('http').createServer(app)
     , io = io.listen(server);
 
-server.listen(80);
+server.listen(8232);
 
 var ClientManager = function(){
     var clients = {};
@@ -72,7 +72,7 @@ io.sockets.on('connection', function (socket) {
         console.log(slave);
 
         slave.emit('remote_cmd', {
-            status: STATUS.SUCCESS,
+            cmd: cmd.cmd,
             msg: [
                 'your master ask you to' + data.cmd
             ]

@@ -23,6 +23,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.gesture.GestureOverlayView;
 import android.gesture.GestureOverlayView.OnGestureListener;
 import android.graphics.Point;
@@ -31,7 +32,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.zijunlin.Zxing.Demo.CaptureActivity;
 
 public class MainActivity extends Activity {
 	private final String TAG = "MainActivity";
@@ -41,30 +49,38 @@ public class MainActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,   
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);  
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
 		setContentView(R.layout.activity_main);
 		/**
-		ImageButton imgbt=(ImageButton)findViewById(R.id.qr_btn);
-		imgbt.getBackground().setAlpha(0);
-		*/
-		//new DownloadFilesTask().execute();
+		 * ImageButton imgbt=(ImageButton)findViewById(R.id.qr_btn);
+		 * imgbt.getBackground().setAlpha(0);
+		 */
+		// new DownloadFilesTask().execute();
 
+		ImageButton qrScanBtn = (ImageButton) findViewById(R.id.qr_btn);
+		qrScanBtn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(MainActivity.this, CaptureActivity.class);
+				MainActivity.this.startActivityForResult(i, 0);
+			}
+		});
 		GestureOverlayView gestureOverlayView = (GestureOverlayView) findViewById(R.id.gestureOverlayView);
 		try {
-			socket = new SocketIO("http://192.168.1.103:80/");
+			socket = new SocketIO("http://199.83.92.201:8232/");
 			socket.connect(new IOCallback() {
 				@Override
 				public void onMessage(JSONObject json, IOAcknowledge ack) {
-					try {
-						Log.d("WebSocket", json.toString());
-						System.out.println("Server said:" + json.toString(2));
-					} catch (JSONException e) {
-						e.printStackTrace();
-					}
+					Log.d("RES", json.toString());
 				}
 
 				@Override
 				public void onMessage(String data, IOAcknowledge ack) {
-					System.out.println("Server said: " + data);
+					//Toast.makeText(getApplicationContext(), "Server said: " +data, Toast.LENGTH_SHORT).show();
+					Log.d("RES", data);
 				}
 
 				@Override
@@ -80,11 +96,14 @@ public class MainActivity extends Activity {
 
 				@Override
 				public void onConnect() {
-					System.out.println("Connection established");
+					Log.d("RES", "onConnect");
 				}
 
 				@Override
 				public void on(String event, IOAcknowledge ack, Object... args) {
+					Log.d("RES", "Event: " + event);
+					Log.d("RES", "args: " + args);
+					
 					System.out
 							.println("Server triggered event '" + event + "'");
 				}
@@ -99,14 +118,12 @@ public class MainActivity extends Activity {
 		gestureOverlayView.addOnGestureListener(new OnGestureListener() {
 			@Override
 			public void onGesture(GestureOverlayView arg0, MotionEvent arg1) {
-				// TODO Auto-generated method stub
 
 			}
 
 			@Override
 			public void onGestureCancelled(GestureOverlayView overlay,
 					MotionEvent event) {
-				// TODO Auto-generated method stub
 
 			}
 
@@ -120,18 +137,18 @@ public class MainActivity extends Activity {
 					if (endX > start.x) {
 						// right
 						Log.d(TAG, "right");
-						socket.emit("right", new Object());
+						socket.emit("cmd", new Object());
 					} else if (endX < start.x) {
 						// left
-						socket.emit("left", new Object());
+						socket.emit("cmd", new Object());
 					}
 				} else {
 					if (endY > start.y) {
 						// down
-						socket.emit("down", new Object());
+						socket.emit("cmd", new Object());
 					} else if (endY < start.y) {
 						// up
-						socket.emit("up", new Object());
+						socket.emit("cmd", new Object());
 					}
 				}
 			}
@@ -161,7 +178,8 @@ public class MainActivity extends Activity {
 				System.out.println(response.getStatusLine().getStatusCode());
 				String htmlContent = "";
 				String token = null;
-				BufferedReader br = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+				BufferedReader br = new BufferedReader(new InputStreamReader(
+						response.getEntity().getContent()));
 				while ((token = br.readLine()) != null) {
 					System.out.println(token);
 					htmlContent += token;
@@ -188,5 +206,18 @@ public class MainActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		String temp = null;
+		Bundle bundle = data.getExtras();
+		temp = bundle.getString("name");
+		setTitle(temp);
+		
+		Toast.makeText(getApplicationContext(), temp,
+			     Toast.LENGTH_SHORT).show();
 	}
 }

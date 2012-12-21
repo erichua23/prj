@@ -376,3 +376,174 @@ Stack trace:
 REQUEST_URI=/github/prj/jsmvc/code/backbone/index.php/api/agents/1
 HTTP_REFERER=http://localhost/github/prj/jsmvc/code/backbone/app.html
 ---
+2012/12/17 10:19:03 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mas2.ada_agent' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `ada_agent`.
+in D:\Workspace\github\prj\jsmvc\code\backbone\protected\controllers\AgentsController.php (13)
+in D:\Workspace\github\prj\jsmvc\code\backbone\index.php (13)
+2012/12/17 10:19:03 [error] [exception.CDbException] exception 'CDbException' with message 'The table "ada_agent" for active record class "AdaAgent" cannot be found in the database.' in D:\Workspace\github\prj\jsmvc\code\backbone\framework\db\ar\CActiveRecord.php:2312
+Stack trace:
+#0 D:\Workspace\github\prj\jsmvc\code\backbone\framework\db\ar\CActiveRecord.php(388): CActiveRecordMetaData->__construct(Object(AdaAgent))
+#1 D:\Workspace\github\prj\jsmvc\code\backbone\framework\db\ar\CActiveRecord.php(403): CActiveRecord::model('AdaAgent')
+#2 D:\Workspace\github\prj\jsmvc\code\backbone\framework\db\ar\CActiveRecord.php(78): CActiveRecord->getMetaData()
+#3 D:\Workspace\github\prj\jsmvc\code\backbone\protected\controllers\AgentsController.php(13): CActiveRecord->__construct()
+#4 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\actions\CInlineAction.php(50): AgentsController->actionListAll()
+#5 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(283): CController->run('listAll')
+#9 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(142): CWebApplication->runController('agents/listAll')
+#10 D:\Workspace\github\prj\jsmvc\code\backbone\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\Workspace\github\prj\jsmvc\code\backbone\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/github/prj/jsmvc/code/backbone/index.php/api/agents
+HTTP_REFERER=http://127.0.0.1/github/prj/jsmvc/code/backbone/app.html
+---
+2012/12/17 10:19:33 [error] [exception.CException] exception 'CException' with message 'AgentsController and its behaviors do not have a method or closure named "_sendResponse".' in D:\Workspace\github\prj\jsmvc\code\backbone\framework\base\CComponent.php:266
+Stack trace:
+#0 [internal function]: CComponent->__call('_sendResponse', Array)
+#1 D:\Workspace\github\prj\jsmvc\code\backbone\protected\controllers\AgentsController.php(7): AgentsController->_sendResponse(501)
+#2 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\actions\CInlineAction.php(50): AgentsController->actionDelete()
+#3 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(283): CController->run('delete')
+#7 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(142): CWebApplication->runController('agents/delete')
+#8 D:\Workspace\github\prj\jsmvc\code\backbone\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\Workspace\github\prj\jsmvc\code\backbone\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/github/prj/jsmvc/code/backbone/index.php/api/agents/1
+HTTP_REFERER=http://127.0.0.1/github/prj/jsmvc/code/backbone/app.html
+---
+2012/12/17 10:19:33 [error] [exception.CException] exception 'CException' with message 'AgentsController and its behaviors do not have a method or closure named "_sendResponse".' in D:\Workspace\github\prj\jsmvc\code\backbone\framework\base\CComponent.php:266
+Stack trace:
+#0 [internal function]: CComponent->__call('_sendResponse', Array)
+#1 D:\Workspace\github\prj\jsmvc\code\backbone\protected\controllers\AgentsController.php(7): AgentsController->_sendResponse(501)
+#2 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\actions\CInlineAction.php(50): AgentsController->actionDelete()
+#3 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(283): CController->run('delete')
+#7 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(142): CWebApplication->runController('agents/delete')
+#8 D:\Workspace\github\prj\jsmvc\code\backbone\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\Workspace\github\prj\jsmvc\code\backbone\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/github/prj/jsmvc/code/backbone/index.php/api/agents/1
+HTTP_REFERER=http://127.0.0.1/github/prj/jsmvc/code/backbone/app.html
+---
+2012/12/17 10:19:34 [error] [exception.CException] exception 'CException' with message 'AgentsController and its behaviors do not have a method or closure named "_sendResponse".' in D:\Workspace\github\prj\jsmvc\code\backbone\framework\base\CComponent.php:266
+Stack trace:
+#0 [internal function]: CComponent->__call('_sendResponse', Array)
+#1 D:\Workspace\github\prj\jsmvc\code\backbone\protected\controllers\AgentsController.php(7): AgentsController->_sendResponse(501)
+#2 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\actions\CInlineAction.php(50): AgentsController->actionDelete()
+#3 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(283): CController->run('delete')
+#7 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(142): CWebApplication->runController('agents/delete')
+#8 D:\Workspace\github\prj\jsmvc\code\backbone\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\Workspace\github\prj\jsmvc\code\backbone\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/github/prj/jsmvc/code/backbone/index.php/api/agents/1
+HTTP_REFERER=http://127.0.0.1/github/prj/jsmvc/code/backbone/app.html
+---
+2012/12/17 10:19:35 [error] [exception.CException] exception 'CException' with message 'AgentsController and its behaviors do not have a method or closure named "_sendResponse".' in D:\Workspace\github\prj\jsmvc\code\backbone\framework\base\CComponent.php:266
+Stack trace:
+#0 [internal function]: CComponent->__call('_sendResponse', Array)
+#1 D:\Workspace\github\prj\jsmvc\code\backbone\protected\controllers\AgentsController.php(7): AgentsController->_sendResponse(501)
+#2 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\actions\CInlineAction.php(50): AgentsController->actionDelete()
+#3 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(283): CController->run('delete')
+#7 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(142): CWebApplication->runController('agents/delete')
+#8 D:\Workspace\github\prj\jsmvc\code\backbone\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\Workspace\github\prj\jsmvc\code\backbone\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/github/prj/jsmvc/code/backbone/index.php/api/agents/1
+HTTP_REFERER=http://127.0.0.1/github/prj/jsmvc/code/backbone/app.html
+---
+2012/12/17 10:19:35 [error] [exception.CException] exception 'CException' with message 'AgentsController and its behaviors do not have a method or closure named "_sendResponse".' in D:\Workspace\github\prj\jsmvc\code\backbone\framework\base\CComponent.php:266
+Stack trace:
+#0 [internal function]: CComponent->__call('_sendResponse', Array)
+#1 D:\Workspace\github\prj\jsmvc\code\backbone\protected\controllers\AgentsController.php(7): AgentsController->_sendResponse(501)
+#2 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\actions\CInlineAction.php(50): AgentsController->actionDelete()
+#3 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(283): CController->run('delete')
+#7 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(142): CWebApplication->runController('agents/delete')
+#8 D:\Workspace\github\prj\jsmvc\code\backbone\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\Workspace\github\prj\jsmvc\code\backbone\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/github/prj/jsmvc/code/backbone/index.php/api/agents/1
+HTTP_REFERER=http://127.0.0.1/github/prj/jsmvc/code/backbone/app.html
+---
+2012/12/17 10:21:07 [error] [exception.CDbException] exception 'CDbException' with message 'The active record cannot be deleted because it is new.' in D:\Workspace\github\prj\jsmvc\code\backbone\framework\db\ar\CActiveRecord.php:1170
+Stack trace:
+#0 D:\Workspace\github\prj\jsmvc\code\backbone\protected\controllers\AgentsController.php(8): CActiveRecord->delete('1')
+#1 [internal function]: AgentsController->actionDelete('1')
+#2 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(AgentsController), Array)
+#3 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(AgentsController), Object(ReflectionMethod), Array)
+#4 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(283): CController->run('delete')
+#8 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(142): CWebApplication->runController('agents/delete')
+#9 D:\Workspace\github\prj\jsmvc\code\backbone\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\Workspace\github\prj\jsmvc\code\backbone\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/github/prj/jsmvc/code/backbone/index.php/api/agents/1
+HTTP_REFERER=http://127.0.0.1/github/prj/jsmvc/code/backbone/app.html
+---
+2012/12/17 10:21:42 [error] [exception.CDbException] exception 'CDbException' with message 'The active record cannot be deleted because it is new.' in D:\Workspace\github\prj\jsmvc\code\backbone\framework\db\ar\CActiveRecord.php:1170
+Stack trace:
+#0 D:\Workspace\github\prj\jsmvc\code\backbone\protected\controllers\AgentsController.php(9): CActiveRecord->delete()
+#1 [internal function]: AgentsController->actionDelete('1')
+#2 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(AgentsController), Array)
+#3 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(AgentsController), Object(ReflectionMethod), Array)
+#4 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(283): CController->run('delete')
+#8 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(142): CWebApplication->runController('agents/delete')
+#9 D:\Workspace\github\prj\jsmvc\code\backbone\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\Workspace\github\prj\jsmvc\code\backbone\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/github/prj/jsmvc/code/backbone/index.php/api/agents/1
+HTTP_REFERER=http://127.0.0.1/github/prj/jsmvc/code/backbone/app.html
+---
+2012/12/17 10:21:43 [error] [exception.CDbException] exception 'CDbException' with message 'The active record cannot be deleted because it is new.' in D:\Workspace\github\prj\jsmvc\code\backbone\framework\db\ar\CActiveRecord.php:1170
+Stack trace:
+#0 D:\Workspace\github\prj\jsmvc\code\backbone\protected\controllers\AgentsController.php(9): CActiveRecord->delete()
+#1 [internal function]: AgentsController->actionDelete('1')
+#2 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(AgentsController), Array)
+#3 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(AgentsController), Object(ReflectionMethod), Array)
+#4 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(283): CController->run('delete')
+#8 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(142): CWebApplication->runController('agents/delete')
+#9 D:\Workspace\github\prj\jsmvc\code\backbone\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\Workspace\github\prj\jsmvc\code\backbone\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/github/prj/jsmvc/code/backbone/index.php/api/agents/1
+HTTP_REFERER=http://127.0.0.1/github/prj/jsmvc/code/backbone/app.html
+---
+2012/12/17 10:32:26 [error] [exception.CException] exception 'CException' with message 'AdaAgent and its behaviors do not have a method or closure named "set".' in D:\Workspace\github\prj\jsmvc\code\backbone\framework\base\CComponent.php:266
+Stack trace:
+#0 D:\Workspace\github\prj\jsmvc\code\backbone\framework\db\ar\CActiveRecord.php(226): CComponent->__call('set', Array)
+#1 [internal function]: CActiveRecord->__call('set', Array)
+#2 D:\Workspace\github\prj\jsmvc\code\backbone\protected\controllers\AgentsController.php(30): AdaAgent->set(NULL)
+#3 [internal function]: AgentsController->actionUpdate('2')
+#4 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(AgentsController), Array)
+#5 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(AgentsController), Object(ReflectionMethod), Array)
+#6 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(283): CController->run('update')
+#10 D:\Workspace\github\prj\jsmvc\code\backbone\framework\web\CWebApplication.php(142): CWebApplication->runController('agents/update')
+#11 D:\Workspace\github\prj\jsmvc\code\backbone\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 D:\Workspace\github\prj\jsmvc\code\backbone\index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/github/prj/jsmvc/code/backbone/index.php/api/agents/2
+HTTP_REFERER=http://127.0.0.1/github/prj/jsmvc/code/backbone/app.html
+---
