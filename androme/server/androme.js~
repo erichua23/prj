@@ -72,7 +72,7 @@ io.sockets.on('connection', function (socket) {
         console.log(slave);
 
         slave.emit('remote_cmd', {
-            cmd: cmd.cmd,
+            cmd: data.cmd,
             msg: [
                 'your master ask you to' + data.cmd
             ]

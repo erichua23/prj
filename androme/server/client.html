@@ -15,52 +15,6 @@
     <script type="text/javascript" src="socket.io.js">
     </script>
     <script>
-    var socket = io.connect('http://ifnou.com:8232');
-
-    socket.on('connect', function () {
-        socket.on('cmd_res', function (data) {
-            console.log(data);
-        });
-        socket.on('remote_cmd', function (data) {
-            console.log(data);
-        });
-        document.getElementById('client-id').innerHTML = socket.socket.sessionid;
-    });
-
-    function sendCmd(cmdBody){
-        console.log(document.getElementById('send-to').value);
-        socket.emit('cmd', cmdBody);
-    }
-
-
-    document.getElementById('left').addEventListener('click', function() {
-        sendCmd({
-            cmd: 'up',
-            slave: document.getElementById('send-to').value
-        });
-    }, false);
-    </script>
-</body>
-</html>
-
-=======
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-    <div>ID: <span id="client-id"></span></div>
-    <div>Send To: <input id="send-to"></div>
-
-    <button id="left">left</button>
-    <button id="top">top</button>
-    <button id="down">down</button>
-    <button id="right">right</button>
-    <script type="text/javascript" src="socket.io.js">
-    </script>
-    <script>
     var socket = io.connect('http://199.83.92.201:8232');
 
     socket.on('connect', function () {
@@ -88,4 +42,3 @@
     </script>
 </body>
 </html>
-

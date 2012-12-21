@@ -8,6 +8,8 @@
 bin/
 tmp/
 *.tmp
+*.html~
+*.js~
 *.bak
 *.swp
 *~.nib
@@ -162,5 +164,3 @@ pip-log.txt
 # Mac crap
 .DS_Store
 
-# VIM
-*~
