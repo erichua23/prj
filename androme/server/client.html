@@ -15,7 +15,7 @@
     <script type="text/javascript" src="socket.io.js">
     </script>
     <script>
-    var socket = io.connect('http://localhost');
+    var socket = io.connect('http://199.83.92.201:8232');
 
     socket.on('connect', function () {
         socket.on('cmd_res', function (data) {
