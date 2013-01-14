@@ -1,18 +1,3 @@
-$.fn.selectRange = function(start, end) {
-    return this.each(function() {
-        if(this.setSelectionRange) {
-            this.focus();
-            this.setSelectionRange(start, end);
-        } else if(this.createTextRange) {
-            var range = this.createTextRange();
-            range.collapse(true);
-            range.moveEnd('character', end);
-            range.moveStart('character', start);
-            range.select();
-        }
-    });
-};
-
 $.fn.allowtab = function (options){
 	console.log(this);
 	console.log(this.get(0).nodeName);
@@ -29,24 +14,26 @@ $.fn.allowtab = function (options){
 					console.log(inputBox);
 					var start =	 0;
 					var end = 0;
+					
 					if (typeof inputBox.selectionStart == 'number') {
+						// 如果支持selectionstart, 这可直接获取选中开始位置和结束位置
 						start = inputBox.selectionStart;
 						end = inputBox.selectionEnd;
 						console.log(start, ':', end);
 					} else if (inputBox.createTextRange) {
+						// 旧版IE不支持selectionStart, 需要通过TextRange来间接获取选中开始和结束位置
 				        var inpTxtLen = inputBox.value.length;
 				        var inpRange = inputBox.createTextRange()	;
 				        inpRange.moveToBookmark(document.selection.createRange().getBookmark());
 
 				        start = -1 * inpRange.moveStart('character', -1 * inpTxtLen);
 				        end = inpTxtLen - inpRange.moveEnd('character', inpTxtLen);
-						console.log(start, ':', end);
 					}
 
 					// 选中一段文字时候不做处理， 如果要多行处理通过正则匹配在每个\n的地方替换为\n\t即可
 					if (start === end) {
-						// 相等时候在selectionStart处添加\t
-						inputBox.value = inputBox.value.slice(0, start) + "\t" + this.value.slice(start);	
+					    // 相等时候在selectionStart处添加\t
+					    inputBox.value = inputBox.value.slice(0, start) + "\t" + this.value.slice(start);	
 
 					    if(inputBox.createTextRange)
 					    {
