@@ -8,4 +8,3 @@ html结构
 
     $('#allowtab').allowtab();
     
-
