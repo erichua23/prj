@@ -6,7 +6,7 @@
   "content_scripts": [
     { 
       "matches": ["http://*/*"],
-      "js": ["./pages/js/content.js"]   
+      "js": ["./pages/js/pageActor.js"]   
     }
   ],
   "browser_action": {
