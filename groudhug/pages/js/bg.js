@@ -5,7 +5,10 @@ var onAddClick = function (info, tab) {
     var title = tab.title;
 
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://lovps.23lab.com', false);
+    xhr.open('POST', 'http://lovps.23lab.com:4567/links', false);
+
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+
     xhr.onreadystatechange = function () {
         if (xhr.readyState==4 && xhr.status==200){
             // console.log(xhr.responseText);
@@ -18,7 +21,9 @@ var onAddClick = function (info, tab) {
             });
         }
     };
-    xhr.send();
+
+    var params = "link[own]=owner&link[url]=url&commit=Create Link";
+    xhr.send(params);
     console.log(url);
 };
 // Create a parent item and two children.
